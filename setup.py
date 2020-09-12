@@ -89,7 +89,7 @@ def find_package_data(where='.', package='',
 
 setup(
     name='django-template-mixins',
-    version='0.1.4',
+    version='0.1.5',
     description="A template tag to allow writing mixins instead of defining more files.",
     author='Benjamin Lei',
     # author_email='',
@@ -100,6 +100,7 @@ setup(
     license='BSD',
     packages=find_packages(exclude=('tests',)),
     package_data=find_package_data(),
+    package_dir={'': 'mixin_templatetag'},
     long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
