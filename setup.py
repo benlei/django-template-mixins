@@ -100,7 +100,7 @@ setup(
     license='BSD',
     packages=find_packages(exclude=('tests',)),
     package_data=find_package_data(),
-    long_description=open('README.rst').read(),
+    long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
