@@ -2,8 +2,8 @@ from django import template
 from django.template import TemplateSyntaxError
 from django.template.base import token_kwargs
 
-from mixinnode import MixinNode
-from mixnode import MixNode
+from mixin_templatetag.mixinnode import MixinNode
+from mixin_templatetag.mixnode import MixNode
 
 register = template.Library()
 
