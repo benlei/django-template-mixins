@@ -3,7 +3,7 @@ import os
 import sys
 from distutils.util import convert_path
 from fnmatch import fnmatchcase
-from mixin_templatetag import __version__, __author__
+from . import __version__, __author__
 
 try:
     from setuptools import setup, find_packages
