@@ -1,30 +1,11 @@
 from django import template
 from django.template import TemplateSyntaxError
 from django.template.base import token_kwargs
-from django.template.defaulttags import CommentNode
+
+from mixin_templatetag.mixinnode import MixinNode
+from mixin_templatetag.mixnode import MixNode
 
 register = template.Library()
-
-
-class MixinNode(template.Node):
-    context_key = '__mixin_context'
-
-    def __init__(self, nodelist, *args, extra_context=None, isolated_context=False, **kwargs):
-        self.nodelist = nodelist
-        self.extra_context = extra_context or {}
-        self.isolated_context = isolated_context
-        super().__init__(*args, **kwargs)
-
-    def render(self, context):
-        values = {
-            name: var.resolve(context)
-            for name, var in self.extra_context.items()
-        }
-
-        if self.isolated_context:
-            return self.nodelist.render(context.new(values))
-        with context.push(**values):
-            return self.nodelist.render(context)
 
 
 @register.tag('mixin')
@@ -58,8 +39,7 @@ def do_mixinblock(parser, token):
     except AttributeError:  # parser.__mixins isn't a list yet
         parser.__mixins = {block_name: nodelist}
 
-    # return basically nothing
-    return CommentNode()
+    return MixinNode()
 
 
 @register.tag('mix')
@@ -107,5 +87,5 @@ def do_mix(parser, token):
 
     isolated_context = options.get('only', False)
     namemap = options.get('with', {})  # bits[1] = construct_relative_path(parser.origin.template_name, bits[1])
-    return MixinNode(nodelist=parser.__mixins[mixin_name], extra_context=namemap,
-                     isolated_context=isolated_context)
+    return MixNode(nodelist=parser.__mixins[mixin_name], extra_context=namemap,
+                   isolated_context=isolated_context)
