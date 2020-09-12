@@ -9,7 +9,6 @@ try:
 except ImportError:
     from distutils.core import setup
 
-
 # Provided as an attribute, so you can append to these instead
 # of replicating them:
 standard_exclude = ('*.py', '*.pyc', '*$py.class', '*~', '.*', '*.bak')
@@ -121,6 +120,7 @@ setup(
         'Programming Language :: Python :: 3 :: Only',
         'Topic :: Utilities',
     ],
+    zip_safe=False,
     install_requires=[
         "django",
     ],
