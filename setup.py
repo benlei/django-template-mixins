@@ -3,6 +3,7 @@ import os
 import sys
 from distutils.util import convert_path
 from fnmatch import fnmatchcase
+from mixin_templatetag import __version__, __author__
 
 try:
     from setuptools import setup, find_packages
@@ -89,9 +90,9 @@ def find_package_data(where='.', package='',
 
 setup(
     name='django-template-mixins',
-    version='0.1.5',
+    version=__version__,
     description="A template tag to allow writing mixins instead of defining more files.",
-    author='Benjamin Lei',
+    author=__author__,
     # author_email='',
     url='https://github.com/benlei/django-template-mixins',
     project_urls={
@@ -100,6 +101,7 @@ setup(
     license='BSD',
     packages=find_packages(exclude=('tests',)),
     package_data=find_package_data(),
+    keywords="django template templatetag mixin",
     long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
