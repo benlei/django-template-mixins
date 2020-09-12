@@ -7,7 +7,7 @@ except ImportError:
 
 setup(
     name='django-template-mixins',
-    version='0.1.1',
+    version='0.1.3',
     description="A template tag to allow writing mixins instead of defining more files.",
     author='Benjamin Lei',
     # author_email='',
@@ -16,7 +16,7 @@ setup(
         'Source': 'https://github.com/benlei/django-template-mixins',
     },
     license='BSD',
-    packages=find_packages(exclude=('tests',)),
+    packages=['mixin_templatetag'],
     long_description=open('README.rst').read(),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
