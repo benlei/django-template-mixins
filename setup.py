@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 try:
-    from setuptools import setup
+    from setuptools import setup, find_packages
 except ImportError:
     from distutils.core import setup
 
@@ -16,7 +16,7 @@ setup(
         'Source': 'https://github.com/benlei/django-template-mixins',
     },
     license='BSD',
-    packages=['mixin_templatetag'],
+    packages=find_packages(exclude=("tests",)),
     long_description=open('README.rst').read(),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
