@@ -1,6 +1,10 @@
 django-template-mixins
 ======================
 
+.. image:: https://img.shields.io/pypi/pyversions/django-template-mixins.svg
+    :target: https://pypi.org/project/django-template-mixins
+
+
 A template filter that allows you to define and use mixins.
 
 Installation
