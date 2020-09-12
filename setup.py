@@ -98,7 +98,7 @@ setup(
         'Source': 'https://github.com/benlei/django-template-mixins',
     },
     license='BSD',
-    packages=find_packages(),
+    packages=find_packages(exclude=('tests',)),
     package_data=find_package_data(),
     long_description=open('README.rst').read(),
     classifiers=[
