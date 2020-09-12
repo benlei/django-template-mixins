@@ -16,6 +16,7 @@ setup(
         'Source': 'https://github.com/benlei/django-template-mixins',
     },
     license='BSD',
+    packages=['mixin_templatetag'],
     long_description=open('README.rst').read(),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
