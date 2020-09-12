@@ -21,7 +21,7 @@ and from there you can use it as follows::
 
  {% load mixins %}
 
- {% mixin foob %}
+ {% mixin foo %}
      <div>
          <div>{{ name }}</div>
          <div>{{ description }}</div>
