@@ -1,7 +1,7 @@
 django-template-mixins
 ======================
 
-.. image:: https://img.shields.io/pypi/pyversions/django-template-mixins.svg
+.. image:: https://img.shields.io/pypi/v/django-template-mixins.svg
     :target: https://pypi.org/project/django-template-mixins
 
 
