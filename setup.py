@@ -7,7 +7,7 @@ except ImportError:
 
 setup(
     name='django-template-mixins',
-    version='0.1',
+    version='0.1.1',
     description="A template tag to allow writing mixins instead of defining more files.",
     author='Benjamin Lei',
     # author_email='',
