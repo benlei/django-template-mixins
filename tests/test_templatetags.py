@@ -1,30 +1,17 @@
 import django
 from django.conf import settings
 from django.template import Context, Template, TemplateSyntaxError
-from django.test import TestCase
+from django.test import SimpleTestCase
 
 
-class MixinTest(TestCase):
+class MixinTest(SimpleTestCase):
     @classmethod
     def setUpClass(cls):
         settings.configure(
             INSTALLED_APPS=(
-                # 'django.contrib.admin',
-                # 'django.contrib.admindocs',
-                # 'django.contrib.auth',
-                # 'django.contrib.contenttypes',
-                # 'django.contrib.messages',
-                # 'django.contrib.sessions',
                 'django.contrib.sites',
-                # 'django.contrib.staticfiles',
-                'mixin_templatetag'
+                'mixin_templatetag',
             ),
-            DATABASES={
-                'default': {
-                    'ENGINE': 'django.db.backends.sqlite3',
-                    'NAME': '/tmp/test_templatetags'
-                }
-            },
             TEMPLATES=[{
                 'BACKEND': 'django.template.backends.django.DjangoTemplates',
                 'OPTIONS': {
