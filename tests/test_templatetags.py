@@ -1,7 +1,11 @@
+import os
+
 import django
 from django.conf import settings
-from django.template import Context, Template, TemplateSyntaxError
+from django.template import Context, Template, TemplateSyntaxError, Engine
 from django.test import SimpleTestCase
+
+BASE_DIR = os.path.dirname(__file__)
 
 
 class MixinTest(SimpleTestCase):
@@ -14,8 +18,12 @@ class MixinTest(SimpleTestCase):
             ),
             TEMPLATES=[{
                 'BACKEND': 'django.template.backends.django.DjangoTemplates',
+                'DIRS': [os.path.join(BASE_DIR, 'templates')],
                 'OPTIONS': {
-                    'debug': True
+                    'debug': True,
+                    'builtins': [
+                        'mixin_templatetag.templatetags.mixins',
+                    ],
                 }
             }],
             DEBUG=True,
@@ -50,7 +58,7 @@ class MixinTest(SimpleTestCase):
     def test_render_fail_mixin_not_found(self):
         with self.assertRaises(TemplateSyntaxError):
             context = Context({})
-            result = Template("""
+            Template("""
                 {% load mixins %}
     
                 {% mixin foo %}
@@ -58,3 +66,9 @@ class MixinTest(SimpleTestCase):
                 {% endmixin %}
                 {% mix foob with name="hello" description="world" %}
             """).render(context)
+
+    def test_extend_for_reference(self):
+        engine = Engine.get_default()
+        template = engine.get_template('content.html')
+        output = template.render(Context({}))
+        self.assertEqual(output.strip(), 'not currently in use, maybe in future')
