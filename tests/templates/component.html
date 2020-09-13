@@ -1,0 +1,10 @@
+<body>
+    {% slot foo %}
+    <div>DEFAULT_FOO{{ some_var }}</div>
+    {% endslot %}
+
+
+    {% slot bar %}
+    <div>DEFAULT_BAR{{ my_var }}</div>
+    {% endslot %}
+</body>

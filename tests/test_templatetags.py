@@ -70,5 +70,73 @@ class MixinTest(SimpleTestCase):
     def test_extend_for_reference(self):
         engine = Engine.get_default()
         template = engine.get_template('content.html')
-        output = template.render(Context({}))
-        self.assertEqual(output.strip(), 'not currently in use, maybe in future')
+        output = template.render(Context(dict(my_var='yes')))
+        self.assertEqual(output.strip(), """
+<body>
+    
+    <div>DEFAULT_FOO</div>
+    
+
+
+    
+    <div>DEFAULT_BAR</div>
+    
+</body>
+
+    <body>
+    
+    <div>DEFAULT_FOO:(</div>
+    
+
+
+    
+            my way
+        
+</body>
+
+    <body>
+    
+            highway
+        
+
+
+    
+    <div>DEFAULT_BARyes</div>
+    
+</body>
+
+    <body>
+    
+            abc
+        
+
+
+    
+            efg
+        
+</body>
+
+
+
+    <body>
+    
+            421
+        
+
+
+    
+            <div>5683</div>
+        
+</body>
+
+
+    <body>
+    
+            :)
+        
+
+
+    
+    <div>DEFAULT_BARyes</div>
+    
+</body>""".strip())

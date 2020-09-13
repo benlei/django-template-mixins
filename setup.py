@@ -91,7 +91,8 @@ def find_package_data(where='.', package='',
 setup(
     name='django-template-mixins',
     version=__version__,
-    description="A template tag to allow writing mixins instead of defining more files.",
+    description="Contains template tags for mixins (in this case, local-template repeatable functions) and components "
+                "(a separate file that has slots that can be replaced).",
     author=__author__,
     # author_email='',
     url='https://github.com/benlei/django-template-mixins',
@@ -101,10 +102,10 @@ setup(
     license='BSD',
     packages=find_packages(exclude=('tests',)),
     package_data=find_package_data(),
-    keywords="django template templatetag mixin",
+    keywords="django template templatetag mixin component slot",
     long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        # 'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Framework :: Django :: 2.0',

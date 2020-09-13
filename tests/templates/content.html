@@ -1,5 +1,54 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    not currently in use, maybe in future
+    {% component 'component.html' only %}
+        {# nothing to see here #}
+    {% endcomponent %}
+
+    {% component 'component.html' with some_var=':(' %}
+        {#                   useless text#}
+        {% comment "Optional note" %}
+            <p>Commented out text with {{ create_date|date:"c" }}</p>
+        {% endcomment %}
+
+
+        {% slot bar %}
+            my way
+        {% endslot %}
+    {% endcomponent %}
+
+    {% component 'component.html' %}
+        {% slot foo %}
+            highway
+        {% endslot %}
+    {% endcomponent %}
+
+    {% component 'component.html' %}
+        {% slot foo %}
+            abc
+        {% endslot %}
+
+        {% slot bar %}
+            efg
+        {% endslot %}
+    {% endcomponent %}
+
+
+
+    {% component 'component.html' %}
+        {% slot foo %}
+            421
+        {% endslot %}
+
+        {% slot bar %}
+            <div>5683</div>
+        {% endslot %}
+    {% endcomponent %}
+
+
+    {% component 'component.html' %}
+        {% slot foo %}
+            :)
+        {% endslot %}
+    {% endcomponent %}
 {% endblock %}

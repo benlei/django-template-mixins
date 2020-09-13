@@ -1,6 +1,11 @@
 from django import template
 
 
+class MixinNode(template.Node):
+    def render(self, context):
+        return ''
+
+
 class MixNode(template.Node):
     def __init__(self, nodelist, *args, extra_context=None, isolated_context=False, **kwargs):
         self.nodelist = nodelist
