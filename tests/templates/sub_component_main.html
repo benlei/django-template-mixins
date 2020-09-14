@@ -1,0 +1,6 @@
+<div>
+    {% slot main_slot %}<h2>default main_slot</h2>{% endslot %}
+    {% component 'sub_component_sub.html' %}
+        {% slot sub_slot %}custom sub_slot{% endslot %}
+    {% endcomponent %}
+</div>
