@@ -83,8 +83,8 @@ class ComponentNode(Node):
         # # and its block nodes also need to be added to the block context.
         for node in compiled_parent.nodelist:
             # The ExtendsNode has to be the first non-text node.
-            if isinstance(node, ExtendsNode) or isinstance(node, ComponentNode) or isinstance(node, IncludeNode):
-                raise TemplateSyntaxError("%s  must not include extends, another component, or include" % (self))
+            if isinstance(node, ExtendsNode):
+                raise TemplateSyntaxError("%s must not extend another template" % (self))
 
         # Call Template._render explicitly so the parser context stays
         # the same.
