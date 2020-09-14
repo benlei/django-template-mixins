@@ -88,3 +88,7 @@ Author
 ~~~~~~
 
 Benjamin Lei
+
+Contributors:
+
+- xblitz
